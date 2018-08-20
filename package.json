@@ -1,0 +1,26 @@
+{
+  "name": "mailegou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "normalize.css": "^8.0.0",
+    "sass": "^1.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bin060159/mailegou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bin060159/mailegou/issues"
+  },
+  "homepage": "https://github.com/bin060159/mailegou#readme"
+}
