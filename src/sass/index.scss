@@ -44,4 +44,56 @@ width: 39px;height: 49px;display:inline-block;text-align: right;} h3{a{color:#EC
 .nav2-box p {border-bottom: 1px dotted #ccc;strong{padding-top: 10px;}}
 
 // banner 部分
+.zhengDian{background-color:#f3f3f3;padding-bottom: 30px;}
 .banner{width: 100%;height: 480px;background-color: #FEDECC;.banner-R{position: absolute;left: 1070px;top:0px;a{display: block;}};position: relative;.cont{img{margin-left: 180px;}}}
+.zhengDian-t h3 {height: 38px;width: 41px;background: url(../css/img/jlt.png)no-repeat;background-position:-58px -44px;font-size: 20px;font-weight: bold;}
+.zhengDian-t{line-height: 41px;font-size: 12px;color:#999;}
+.zhengDian-D{div{width: 20%;float: left;text-align: center;background-color: #444851;color:white;span{font-size: 12px;}}}
+
+// 抢购商品
+.zdSp{background-color:#f3f3f3;}
+.zdSp .cont{ul{li{width: 290px;box-shadow: 0px 0px 5px 0px #d8d7d7;float: left;height: 335px;background-color: white;p{i{font-size: 12px;color: #999;}del{color:#999;font-size: 12px;}button{background-color:#F95D5E;color:white;width: 90px;height: 32px;border-radius: 5px;margin-right: 20px;}
+span{color:red;font-weight: 900;}}img{display: block;margin:0 auto;} a{color:#999;font-size: 12px;margin-left: 15px;}}}}
+
+.zdSp .cont{ul{background-color:#f3f3f3;li{padding-bottom: 10px;margin-right: 10px;p{text-align: center;margin-top: 20px;}}}}
+.zdSp .cont ul li:nth-of-type(4){margin-right: 0;}
+
+// 天天特卖
+.tiantian{background-color: #f3f3f3;padding-top: 25px;}
+.tt{li{float: left;width: 290px;height: 290px;margin-right: 10px;margin-bottom: 10px;box-sizing:border-box;box-shadow: 0px 0px 5px 0px #d8d7d7;}}
+.tt li:nth-child(4n){margin-right: 0;}
+// .tt li p:nth-of-type(1){font-size: 14px;margin-left: 5px;}
+.tt li .d2{position: relative;padding:10px 10px 0 10px;font-family: "microsoft yahei";p{margin-bottom: 5px;};span{font-size: 12px;color:#999;}}
+.tt li .d2 p:nth-of-type(2){color:#e02200;font-weight: bold;position: absolute;right: 15px;top: 15px;}
+.youlike{background-color: #f3f3f3;padding-top: 25px;}
+.youlike .ylike li{float: left;width: 230px;height: 220px;box-shadow: 0px 0px 5px 0px #d8d7d7;margin-bottom: 10px;div{text-align: center;overflow: hidden;
+ margin-top: 20px;   
+text-overflow:ellipsis;width: 210px;padding:0 10px;white-space: nowrap;p{font-size: 18px;font-weight: bold;color:red;line-height: 37px;}};a{font-size: 12px;color:#999;}
+background-color: white;margin-right: 10px;img{width: 150px;height: 150px;display: block;margin:0 auto;}}
+.youlike .ylike li:nth-child(5n){margin-right: 0;}
+// 分层--------------------
+.f1{background-color: #f3f3f3;height: 495px;padding-top: 30px;h3{position: relative;b{position: absolute;left:-8px;top:-9px;display: block;
+    width: 30px;
+    height: 40px;
+    line-height: 50px;
+    margin: 0 11px 0 28px;
+    font-size: 18px;
+    background-color: #8BE9E9;
+    width: 30px;
+    height: 40px;
+    line-height: 50px;
+    margin: 0 11px 0 28px;
+    font-size: 18px;
+    text-align: center;}};div{box-shadow: 0px 0px 5px 0px #d8d7d7;}}
+.f1-l{width: 178px;position: relative;h3{height: 42px;
+    margin-top: 4px;width: 178px;line-height: 40px; position: absolute; top: -4px;left: 0px;color: #fff;text-align: center;
+    background-color: #03a4fe;font-size: 16px;font-family: "microsoft yahei";border-bottom: 4px solid #fff;}height: 443px;padding-top: 46px;border: 1px solid #ededed;background: #fff;
+    float: left;margin-right: 10px;.list{overflow: hidden;box-shadow: 0 0 0 0;padding: 13px 0 13px 25px;height: 210px;a{display: block;width: 62px;height: 30px;font-size: 12px;color:#999;float: left;;}}}
+.f1-c2{padding-right: 10px;}
+.f1-l .list .listcolor{color:#03a4fe;}
+.f1-c1{padding-right: 10px;.fi-c1xia{margin-top: 10px;}}
+.f1-c1 a,.f1-c2 a{display: block;}
+.f1-c2 a:nth-of-type(2){margin-top: 11px;}
+.f1-r a{display: block;}
+.two{margin-top: 10px;margin-bottom: 10px;}
+.tuijian{background-color: #f3f3f3;padding-top: 30px;h2{line-height: 35px;}}
