@@ -1,0 +1,88 @@
+﻿@charset "utf-8";
+/* background:url(../image/headerbg.jpg) no-repeat top; background:url(../image/milk_tit.png) no-repeat; background:url(../image/headerbg_yyp.jpg) no-repeat top; background:url(../image/hraderbf_yyp_baby.jpg) no-repeat top;  background:url(../image/yyp_tit.gif) no-repeat;*/
+.milk_infor{ width:750px; border:2px solid #fb9b2b; font-family:arial,Microsoft Yahei; position:relative; padding:0px; text-align:center;}
+.milk_infor h1{ padding-top:20px; text-align:center; font-size:24px; color:#0099CC;}
+.infor_tab_top{ margin:0px auto; margin-top:10px; width:500px;}
+.infor_tab_top td{height:24px; color:#0099CC; font-size:14px; text-align:left;}
+.infor_tab_top td.t1{ font-size:16px; color:#000;}
+.milk_infor p{ padding:0px; line-height:26px; margin:0px; color:#000; font-size:14px; text-align:left;}
+.milk_infor p img{ display:block; text-align:center; margin:0px auto;}
+.milk_infor p a{ color:#0480b9; text-decoration:none;} 
+.milk_infor p a:hover{ color:#F00; text-decoration:underline;}
+.milk_infor p.ps{ font-size:16px; color:#fe6100; text-align:center; line-height:40px;}
+.milk_infor p.dl{ text-indent:28px; text-align:justify; line-height:22px; padding:10px; display:block;}
+.milk_infor .infor_tit{ width:762px; height:46px; position:absolute; left:-6px;}
+.milk_infor .height46{ height:46px; margin-bottom:15px;}
+.milk_infor .tit_nfxq{ background-position:0px 0px;}
+.milk_infor .tit_nftd{ background-position:0px -48px;}
+.milk_infor .tit_xjzs{ background-position:0px -95px;}
+.milk_infor .tit_wyzn{ background-position:0px -142px;}
+.milk_infor .tit_cpff{ background-position:0px -188px;}
+.milk_infor .tit_yycf{ background-position:0px -236px;}
+.milk_infor .tit_zysx{ background-position:0px -282px;}
+.milk_infor .tit_xfwd{ background-position:0px -330px;}
+.milk_infor .tit_ppjj{ background-position:0px -377px;}
+.milk_infor .tit_zpbz{ background-position:0px -424px;}
+.milk_infor .tit_bzsp{ background-position:0px -471px;}
+.milk_infor .tit_yhpj{ background-position:0px -518px;}
+.milk_infor .tit_spsm{ background-position:0px -565px;}
+.milk_infor .tit_about{ background-position:0px -611px;}
+
+/*营养品*/
+.yyp_infor{ width:750px; border:2px solid #fb9b2b; font-family:arial,Microsoft Yahei; position:relative; padding:0px; text-align:center;}
+.yyp_baby{ width:750px; border:2px solid #fb9b2b;font-family:arial,Microsoft Yahei; position:relative; padding:0px; text-align:center;}
+.yyp_infor h1{ padding-top:20px; text-align:center; font-size:24px; color:#0099CC;}
+.infor_tab_top{ margin:0px auto; margin-top:10px; width:500px;}
+.infor_tab_top td{height:24px; color:#0099CC; font-size:14px; text-align:left;}
+.infor_tab_top td.t1{ font-size:16px; color:#000;}
+.yyp_infor p{ padding:0px; line-height:26px; margin:0px; color:#000; font-size:14px; text-align:left;}
+.yyp_infor p img{ display:block; text-align:center; margin:0px auto;}
+.yyp_infor p a{ color:#0480b9; text-decoration:none;} 
+.yyp_infor p a:hover{ color:#F00; text-decoration:underline;}
+.yyp_infor p.ps{ font-size:16px; color:#fe6100; text-align:center; line-height:40px;}
+.yyp_infor p.dl{ text-indent:28px; text-align:justify; line-height:22px; padding:10px; display:block;}
+.yyp_infor .infor_tit{ width:762px; height:46px; position:absolute; left:-7px;}
+.yyp_infor .height46{ height:46px; margin-bottom:15px;}
+.yyp_infor .tit_yyp_cpjj{ background-position:0px 0px;}
+.yyp_infor .tit_yyp_cptd{ background-position:0px -48px;}
+.yyp_infor .tit_yyp_syff{ background-position:0px -95px;}
+.yyp_infor .tit_yyp_bcff{ background-position:0px -142px;}
+.yyp_infor .tit_yyp_use{ background-position:0px -188px;}
+.yyp_infor .tit_yyp_about{ background-position:0px -236px;}
+.yyp_infor .tit_yyp_zysx{ background-position:0px -282px;}
+.yyp_infor .tit_yyp_xgwnd{ background-position:0px -330px;}
+.yyp_infor .tit_yyp_ppjj{ background-position:0px -377px;}
+.yyp_infor .tit_yyp_zpbz{ background-position:0px -424px;}
+.yyp_infor .tit_yyp_bzsp{ background-position:0px -471px;}
+.yyp_infor .tit_yyp_yhpj{ background-position:0px -518px;}
+.yyp_infor .tit_yyp_spsm{ background-position:0px -565px;}
+.yyp_infor .tit_yyp_xjzs{ background-position:0px -611px;}
+.yyp_infor .tit_yyp_yycf{ background-position:0px -658px;}
+.yyp_infor .tit_yyp_cpxq{ background-position:0px -705px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

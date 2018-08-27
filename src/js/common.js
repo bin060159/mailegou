@@ -216,7 +216,7 @@ var Cookie = {
 
 		// 有效期
 		if(prop.expires){
-			str += ';expires=' + prop.expires;
+			str += ';expires=' + prop.expires.toUTCString();
 		}
 
 		// 保存路径
@@ -244,3 +244,142 @@ var Cookie = {
 // Cookie.set('passowrd','123456',{path:'/'});//laoxie
 // Cookie.set('passowrd','abcd',{expires:now,path:'/',secure:true});//laoxie
 // Cookie.remove()
+
+
+// function animate(ele,attr,target){
+// 	// 避免多个属性时定时器覆盖
+// 	var timerName = attr + 'timer';
+
+// 	// 避免抖动
+// 	clearInterval(ele[timerName]);
+
+// 	ele[timerName] = setInterval(function(){
+// 		// 获取当前值
+// 		// var current = getComputedStyle(ele)[attr];
+// 		var current = getCss(ele,attr);//可能达到的值：200px,0.5,1,45deg,#1258bc
+
+// 		// 提取单位
+// 		var unit = current.match(/^([\d\.]+)([a-z]*)$/);//null
+
+// 		if(!unit){
+// 			// 如果得到null,意味动画无法进行，直接退出
+// 			clearInterval(ele.timer);
+// 			return;
+// 		}
+
+// 		// 提取值和单位
+// 		current = unit[1]*1;
+// 		unit = unit[2];
+
+// 		// 计算缓冲速度
+// 		var speed = (target-current)/10;//0.6->1，-0.6->-1
+
+// 		// speed不能为0
+// 		speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+
+// 		// 针对opacity处理speed
+// 		if(attr === 'opacity'){
+// 			speed = speed<0 ? -0.05 : 0.05;
+// 		}
+
+// 		current += speed;
+
+// 		// 判断结束条件
+// 		if(current === target){
+// 			clearInterval(ele[timerName]);
+
+// 			// 重置目标值
+// 			current = target;
+// 		}
+
+// 		// 设置样式
+// 		ele.style[attr] = current + unit;
+// 	},30)
+// }
+
+
+
+// animate(item[i],'top',160)
+// animate(item[i],'top',5)
+
+
+function animate(ele,opt,callback){
+	// 记录属性数量
+	var timerLen = 0;
+
+	for(var attr in opt){
+		// 每循环一个属性+1
+		timerLen++;
+
+		(function(attr){
+			// 获取目标值
+			var target = opt[attr];
+
+			var timerName = attr + 'timer';
+
+			// 避免抖动
+			clearInterval(ele[timerName]);
+
+			ele[timerName] = setInterval(function(){
+				// 获取当前值
+				// var current = getComputedStyle(ele)[attr];
+				var current = getCss(ele,attr);//可能达到的值：-165px,200px,0.5,1,45deg,#1258bc
+
+				// 提取单位
+				var unit = current.match(/^([\-\d\.]+)([a-z]*)$/);//null
+
+				if(!unit){
+					// 如果得到null,意味动画无法进行，直接退出
+					clearInterval(ele.timer);
+					return;
+				}
+
+				// 提取值和单位
+				current = unit[1]*1;
+				unit = unit[2];
+
+				// 计算缓冲速度
+				var speed = (target-current)/10;//0.6->1，-0.6->-1
+
+				// speed不能为0
+				speed = speed<0 ? Math.floor(speed) : Math.ceil(speed);
+
+				// 针对opacity处理speed
+				if(attr === 'opacity'){
+					speed = speed<0 ? -0.05 : 0.05;
+				}
+
+				current += speed;
+
+				// 判断结束条件
+				if(parseInt(current) === target){
+					clearInterval(ele[timerName]);
+
+					// 重置目标值
+					current = target;
+
+					// 每结束一个定时器，数量-1
+					timerLen--;
+
+					// 执行背景颜色改变
+					if(typeof callback === 'function' && timerLen===0){
+						callback();
+					}
+				}
+
+				// 设置样式
+				ele.style[attr] = current + unit;
+			},30);
+
+		})(attr);
+	}
+}
+
+/**
+ * 数据类型判断终极版
+ * @param  {Every} data [任意数据类型]
+ * @return {String}      [数据类型字符串]
+ */
+function type(data){
+	return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}

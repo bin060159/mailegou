@@ -1,0 +1,123 @@
+﻿function PrintDiv() {
+
+    //document.write("<div class='tcpay' id='messageByOk' style='z-index: 10000; position: absolute; display: none;'><div class='topDiv'><div class='inform'>领券通知</div><div class='tc_closed'>  <a onclick='closeDiv()' style='cursor: pointer'>关闭</a></div></div><div class='clear'></div> <div class='botDiv'><p id='coupontypeSign'></p><p><a style='margin-right: 40px;' class='btna' onclick='closeDiv()'>确定</a><a id='gotoUrl' class='btna' target='_blank'>立即购物</a></p></div></div><div id='fade' class='black_overlay'></div>");
+    //输入手机号的div
+    //document.write("<div id='mobileDiv' style='display:none'></div>");
+}
+PrintDiv();
+//function openDiv() {
+
+//    var l = document.documentElement.clientWidth / 2 - 200;
+//    var h = document.documentElement.clientHeight / 2 - 100;
+//    $('.black_overlay').css('height', $(document).height()); $('.tcpay').css('left', l);
+//    $('.tcpay').css('position', 'fixed');
+//    $('.tcpay').css('top', 300);
+//    document.getElementById('fade').style.display = 'block'
+
+//}
+//function closeDiv() {
+
+//    document.getElementById('fade').style.display = 'none';
+//    $('#messageByOk').hide();
+
+//}
+
+
+$(function () {
+
+    $(window).scroll(function () {
+        $('.black_overlay').css('height', $(document).height());
+    });
+
+    $("[href*='CouponsActivities/CreateCoupon']").each(
+        function (index) {
+
+            var NewUrl = $(this).attr("href");
+            NewUrl = NewUrl.substr($(this).attr("href").indexOf("/CouponsActivities/"), NewUrl.length - $(this).attr("href").indexOf("/CouponsActivities/"));
+            $(this).attr("href", "javascript:void(0);");
+            $(this).removeAttr("target");
+            $(this).attr("Onclick", "getCoupon('" + NewUrl + "');");
+        }
+ );
+})
+
+
+
+
+
+
+
+function getCoupon(url) {
+    var requestUrl = url;
+    jQuery.ajax({
+        url: requestUrl
+            , type: "post"
+		    , dataType: "json"
+		    , timeout: 180000 //3分钟
+		    , success: function (data) {
+		        if (data.erro == "0") {
+		            base.onLayer({
+		                type: "coupon",
+		                title: "领取优惠券",
+		                txt: "恭喜您领取" + data.coupontype + "一张！",
+		                okval: "立即使用",
+		                ok: function (c) {
+		                    window.location.href = data.gotoUrl;
+		                }
+		            })
+		        } else if (data.erro == "2") {
+		            //弹出填写手机号的框
+		            var param = {
+		                Activity: data.Activity,
+		                ActivityRuleId: data.ActivityRuleId,
+		                Type: data.Type,
+		                TicketBacth: data.TicketBacth,
+		                Sign: data.Sign,
+		                gotoUrl: escape(data.gotoUrl),
+		                UserType: data.UserType
+		            }
+		            mobileCouponPage(param);
+		        }
+		        else {
+		            if (data.RedirectUrl != null) {
+		                window.location.href = data.RedirectUrl;
+		            }
+		            else {
+		                //alert(data.message)
+		                base.onLayer({
+		                    width: "606px",
+		                    type: "coupon lamit",
+		                    txt: "<img src='http://res.m6go.com/Content/newIndex/images/couponBan.jpg'><span class='imgTxt'>" + data.message + "</span>"
+		                })
+		            }
+		        }
+		    }
+    });
+}
+//----------------------------------------------------------------
+function mobileCouponPage(param) {
+    jQuery.ajax({
+        "type": "POST",
+        "url": "/CouponsActivities/MobileCoupon.do?date="+new Date(),
+        "dataType": "text",
+        "data": param,
+        "success": function (data) {
+
+            if (jQuery.trim(data) != "") {
+              TanChuangMeg("领取优惠券", data, "完成", data.gotoUrl);
+            }
+        }
+    });
+}
+function TanChuangMeg(title, msg, buttonMsg,url) {
+    base.onLayer({
+        type: "coupon",
+        title: title,
+        txt: msg,
+        okval: buttonMsg,
+        ok: function (c) {
+
+           DoBindCoupon(c);
+        }
+    })
+}

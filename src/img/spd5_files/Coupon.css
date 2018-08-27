@@ -1,0 +1,91 @@
+﻿    .tcpay
+    {
+        border: 1px #e1b589 solid;
+        background-color: #fffcf9;
+        position: absolute;
+        z-index: 99999;
+        width: 375px;
+        height: 190px;
+        padding: 0px 5px 10px 20px;
+    }
+    .tcpay .tc_closed
+    {
+        float: right;
+        font-size: 14px;
+    }
+    .tcpay .tc_closed a
+    {
+        color: #000;
+        text-decoration: none;
+    }
+    .tcpay .tc_closed a:hover
+    {
+        color: #bf5f00;
+        text-decoration: none;
+    }
+    .tcpay .btna
+    {
+        display: inline-block;
+        width: 100px;
+        height: 35px;
+        line-height: 34px;
+        font-size: 17px;
+        font-family: '微软雅黑';
+        color: #fff;
+        background: #b51400;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .tcpay .topDiv
+    {
+        border-bottom: 1px solid #e1b589;
+        height: 30px;
+        margin-right: 10px;
+        padding-top: 8px;
+    }
+    .tcpay .inform
+    {
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: '微软雅黑';
+    }
+    .tcpay .tc_closed a
+    {
+        padding-top: 5px;
+        padding-right: 5px;
+        display: block;
+    }
+    .tcpay .botDiv
+    {
+        text-align: center;
+        line-height: 60px;
+        font-size: 18px;
+        font-family: '微软雅黑';
+        color: #c00;
+    }
+    .bg
+    {
+        width: 100%;
+        height: 500px;
+        background: #000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+    .black_overlay
+    {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 150%;
+        background-color: black;
+        z-index: 9999;
+        -moz-opacity: 0.8;
+        opacity: .80;
+        filter: alpha(opacity=80);
+    }

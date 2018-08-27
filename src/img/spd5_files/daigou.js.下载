@@ -1,0 +1,234 @@
+﻿/*
+ * **********************************************************************
+ * -- Author: mliu
+ * -- Date: 2010-12-02
+ * -- LastDate: 2010-12-02
+ * -- Version: 1.0.0.0
+ * -- Note: 团购客户端操作脚本
+ * -- Copyright(C) 2010 MamShare BEIJING CHINA            
+ * **********************************************************************
+ */
+var daigou = function(){      
+    var webClip = {};
+
+    var initialize = function(){
+        $( function(){
+            //alert("init");
+            initClipboard();
+        })
+    };
+    
+    var initClipboard = function(){
+        if(typeof(ZeroClipboard) != "undefined"){
+
+            ZeroClipboard.setMoviePath("/content/js/common/zeroclipboard.swf" );
+            initWebClipboard();
+        }
+    };
+    
+    var initWebClipboard = function(){
+        if(document.getElementById("webClipboard")){
+            
+		    webClip = new ZeroClipboard.Client();
+		    webClip.setHandCursor( true );
+		    webClip.addEventListener('load', webClipboardLoaded);
+		    webClip.addEventListener('mouseOver', webClipboardMouseOver);
+		    webClip.addEventListener('complete', webClipboardComplete);			
+		    webClip.glue('webClipboard');
+    		
+            $(window).resize(function(){
+                webClip.reposition();
+            });
+        }
+    };
+    
+    var webClipboardLoaded = function(client) {
+	    //alert("Flash movie loaded and ready.");
+    };
+		
+    var webClipboardMouseOver = function(client) {
+        var strMessage = "";
+        var clipboardIndex = 1;
+        if(document.getElementById("clipboardIndex")){
+            clipboardIndex = document.getElementById("clipboardIndex").value;
+        }
+        
+        if(clipboardIndex == 1){
+            strMessage = "邀请好友就有奖";
+        }else{
+            strMessage = "邀请好友就有奖";
+        }
+		client.setText( document.getElementById('webUrl').value );
+		
+    };
+		
+    var webClipboardComplete = function(client, text){	
+		//alert("urlHost");
+        var urlHost = "http://"+window.location.host;        
+        var url = "";
+        var params = [];
+   
+        params.push({ "name": "flags", "value": "1"});
+        
+        $.ajax({
+            url:urlHost+"/goods/CheckLogin.do",
+            type: "post",
+            dataType: "json",
+            data: $.param(params),
+            success: function(response) {                
+                if(response.Status == "success") {
+				
+                    var strMessage = "";
+                    var clipboardIndex = 1;
+                    if(document.getElementById("clipboardIndex")){
+                        clipboardIndex = document.getElementById("clipboardIndex").value;
+                    }
+                    
+                    if(clipboardIndex == 1){
+                        strMessage = "链接复制成功，可以通过QQ/MSN等发给好友！";
+                    }else{
+                        strMessage = "链接复制成功，可以通过QQ/MSN等发给好友！";
+                    }
+		            alert(strMessage);
+                }else{                    
+                    alert("链接复制成功，可以通过QQ/MSN等发给好友！（因你没有登录，此链接不能参加10元返现，建议你登录后再复制。）");
+                }
+				
+            }
+        });		
+    };
+    
+    var shareLink = function(options){
+        var shares = [];
+        var strHtml = '分享此超省商品给你的朋友　';
+        var shareExternal = [
+            {
+                name : '开心',
+                //url : 'http://www.kaixin001.com/repaste/share.php?rtitle='+encodeURIComponent(options.title)+'&rcontent='+encodeURIComponent(options.content)+'&rurl='+encodeURIComponent(options.url),
+                url : 'http://www.kaixin001.com/rshare/share.php?rpara=='+encodeURIComponent(options.title),
+                params : {
+                    className : 'b1'
+                }
+            },{
+                name : '人人',
+                url : 'http://share.renren.com/share/buttonshare.do?title='+encodeURIComponent(options.title)+'&link='+encodeURIComponent(options.url),
+                params : {
+                    className : 'b3'
+                }
+            },{
+                name : '豆瓣',
+                url : 'http://www.douban.com/recommend/?title='+encodeURIComponent(options.title)+'&content='+encodeURIComponent(options.content)+'&url='+encodeURIComponent(options.url),
+                params : {
+                    className : 'b2'
+                }
+            },{
+                name : '新浪微博',
+                url : 'http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(options.title)+'&rcontent='+encodeURIComponent(options.content)+'&url='+encodeURIComponent(options.url),
+                params : {
+                    className : 'b5'
+                }
+            },{
+                name : '百度',
+                url : 'http://cang.baidu.com/do/add?it='+options.title+'&dc='+encodeURIComponent(options.content)+'&iu='+encodeURIComponent(options.url)+'&tn=%E5%A6%88%E5%A6%88%E8%AF%B4%E5%9B%A2%E8%B4%AD',
+                params : {
+                    className : 'b4'
+                }
+            },{
+                name : 'Google',
+                url : 'http://www.google.com/bookmarks/mark?op=edit&output=popup&title='+encodeURIComponent(options.title)+'&content='+encodeURIComponent(options.content)+'&bkmk=='+encodeURIComponent(options.url),
+                params : {
+                    className : 'b6'
+                }
+            }
+        ];        
+
+        for(var i=0; i<shareExternal.length;i++){
+            if(options.typeId = 1){
+                shares[i] = '<a href="'+shareExternal[i].url+'" title="分享到'+shareExternal[i].name+'"target="_blank" class="'+shareExternal[i].params.className+'">aa</a>';
+            }else{
+                shares[i] = '<a href="javascript:void(0)" onclick="javascript:window.open(\''+shareExternal[i].url+'\',\'\',\'_target\')" target="_blank" class="b1">'+shareExternal[i].name+'</a>';
+            }
+        }
+
+        //strHtml += '<span class="l">';
+        strHtml = shares.join("");alert(strHtml);
+        //strHtml += '</span>';
+        $("#shareLink").empty().append(strHtml);
+    };
+    
+    
+    
+    var goodsBuy = function(options){
+        //$("#gid").val(options.id);
+        $("#formBuy").attr("action","/GroupOrder/Buy.do?gid="+options.id);
+        $("#formBuy").submit();
+    };
+    
+    var goodsShareFriend = function(options){
+        var urlHost = "http://"+window.location.host;        
+        var url = "";
+        switch(options.status){
+            case "login":
+                url = urlHost;
+                window.location.href = url;
+                break;
+            case "fault":
+                alert("邀请者不正确");                
+                break;
+            case "success":
+                url = urlHost;
+                window.location.href = url;
+                break;
+        }
+    };
+    
+    
+
+    return {
+        init:function(){ 
+            initialize();          
+        }(),
+		initclipboard:function(){
+		    initialize(); 
+		},
+        util:function(){
+            return{
+                share:function(){
+                    var options = {};
+                    options.title = arguments[0];
+                    
+                    if(arguments.length>1){
+                        options.content = arguments[1];
+                    }else{
+                        options.content = "";
+                    }
+                    
+                    if(arguments.length>2){
+                        options.link = arguments[2];
+                    }else{
+                        options.link = "";
+                    }
+                    
+                    if(arguments.length>3){
+                        options.typeId = arguments[3];
+                    }else{
+                        options.typeId = 1;
+                    }
+                    
+                    shareLink(options);
+                },
+                disabledCopy:function(evt){
+                    if(window.event){
+                        var keycode = evt.keycode;
+                        var key = String.fromCharCode(keycode).toLowerCase();
+                        if((evt.ctrlkey && key=="v") || evt.button==2){
+                            evt.preventDefault();
+                            evt.stopPropagation();
+                        }
+                    }
+                }
+            }
+        }()
+        
+    }
+}()

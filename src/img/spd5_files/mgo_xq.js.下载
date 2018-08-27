@@ -1,0 +1,203 @@
+// JavaScript Document
+function fixedTab() {
+    var proNavTop = $('.proNav').offset().top;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > proNavTop) {
+            if (isIe6()) {
+                $('.proNav').css('position', 'absolute');
+                $('.proNav').css('top', $(window).height() + 35);
+            } else {
+                $('.proNav').addClass("fixDiv")
+                $('.proNav ul').addClass("fixUl");
+            }
+            $(".overLeftKf.on").show();
+            $('.proNav').css('zIndex', 99);
+        } else {
+            $('.proNav').removeClass("fixDiv");
+            $('.proNav ul').removeClass("fixUl");
+            $(".overLeftKf.on").hide();
+        }
+        /*if($(window).width()>1190.01){		
+			$('.proNav').css('width',960)
+		}else{		
+			$('.proNav').css('width',790)
+		}*/
+    });
+
+
+    $('.proNav li').click(function () {
+        if ($(this).index() < 2) {
+            $('.proNav').addClass("fixDiv")
+            $('.proNav ul').addClass("fixUl");
+            $(".overLeftKf.on").show();
+            $(this).addClass('hover').siblings().removeClass("hover");
+        }
+    });
+
+    function isIe6() {
+        var str = window.navigator.userAgent.toLowerCase();
+        if (str.indexOf('msie 6') != -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function isIe7() {
+        var str = window.navigator.userAgent.toLowerCase();
+        if (str.indexOf('msie 7') != -1) return true;
+        return false;
+    }
+    function isIe8() {
+        var str = window.navigator.userAgent.toLowerCase();
+        if (str.indexOf('msie 8') != -1) return true;
+        return false;
+    }
+
+}
+
+$(function () {
+    $(".wxImg").hover(function () {
+        $(".overWx").fadeIn(200);
+    }, function () {
+        $(".overWx").stop().fadeOut(200);
+    })
+})
+
+function slideLr() {
+    $(".slideLr").each(function () {
+        if ($(this).hasClass("_isload")) { return; }
+        var This = this;
+        var content = $(".slideCon", this);
+        var list = $(".slideCon .slideList", this);
+        var prev = $(".prev", this);
+        var next = $(".next", this);
+        var initNum = 0;
+        content.css({
+            width: list.width() * list.length
+        });
+        if (content.width() > 0) { $(this).addClass("_isload"); }
+        prev.addClass("disabled");
+        prev.bind("click", function () {
+            around(-1, this);
+        });
+        next.bind("click", function () {
+            around(1, this);
+        });
+        function around(n, o) {
+            if (!$(o).hasClass("disabled") && !$(o).hasClass("executing") && list.length > 4) {
+                $(o).addClass("executing");
+                n > 0 ? initNum++ : initNum--;
+                var val = -content.parent().width() * initNum;
+                content.animate({
+                    left: val
+                }, function () {
+                    $(o).removeClass("executing");
+                    if (parseInt(content.css("left")) <= -parseInt(content.width() - content.parent().width())) {
+                        next.addClass("disabled");
+                    } else {
+                        next.removeClass("disabled");
+                    }
+                    if (parseInt(content.css("left")) >= 0) {
+                        prev.addClass("disabled");
+                    } else {
+                        prev.removeClass("disabled");
+                    }
+                });
+            }
+        }
+    });
+}
+
+
+function ie(ie) {
+    var userAgent = navigator.userAgent;
+    var isOpera = userAgent.indexOf("Opera") > -1;
+    var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera;
+    var isFF = userAgent.indexOf("Firefox") > -1;
+    var isSafari = userAgent.indexOf("Safari") > -1;
+    if (isIE) {
+        var IE7 = IE8 = false;
+        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+        reIE.test(userAgent);
+        var fIEVersion = parseFloat(RegExp["$1"]);
+        IE7 = fIEVersion == 7.0;
+        IE8 = fIEVersion == 8.0;
+        IE9 = fIEVersion == 9.0;
+        if (ie) {
+            return "IE"
+        }
+        if (IE7) {
+            return "IE7";
+        }
+        if (IE8) {
+            return "IE8";
+        }
+        if (IE9) {
+            return "IE9";
+        }
+    } //isIE end
+    if (isFF) {
+        return "FF";
+    }
+} //myBrowser() end
+
+/*ªÆπ˝œ‘ æ≤„*/
+function showMouseTxt(This, type, txt, top, left, cssStyle) {
+    var tagNum = 0
+    if ($("#showMouseTxt" + tagNum).length) {
+        tagNum = 1
+        $("#showMouseTxt" + tagNum).remove();
+    }
+    var top = top || 0, left = left || 0;
+    $(document.body).append("<div id='showMouseTxt" + tagNum + "'></div>");
+    var bgColor = "auto"
+    if (ie() == "IE7" || ie() == "IE8") {
+        bgColor = "progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#fffffff', EndColorStr='#fffffff')";
+    }
+    var cssType = {
+        type1: {
+            position: "absolute",
+            top: $(This).offset().top + $(This).height() + top,
+            left: $(This).offset().left + left,
+            lineHeight: "18px",
+            background: "rgba(255,255,255,.9)",
+            padding: "5px",
+            marginTop: 10,
+            opacity: 0,
+            filter: bgColor,
+            color: "#000",
+            fontSize: "12px",
+            border: "1px solid #ccc",
+            maxWidth: "410px"
+        },
+        type2: {
+            position: "absolute",
+            top: $(This).offset().top + $(This).height() + top,
+            left: $(This).offset().left + left,
+            lineHeight: "30px",
+            background: "rgba(0,255,255,.9)",
+            padding: "0 10px",
+            marginTop: 10,
+            opacity: 0,
+            filter: bgColor,
+            color: "#000",
+            fontSize: "14px",
+            border: "1px solid #ccc",
+            maxWidth: "380px"
+        }
+    }
+    $("#showMouseTxt" + tagNum).css(cssType[cssStyle]).animate({ marginTop: 0, opacity: 1 }, 150).html(txt);
+    if (type == "blur") {
+        $(This).on("blur", removeThis)
+    }
+    if (type == "over") {
+        $(This).on("mouseout", removeThis)
+    }
+    function removeThis() {
+        $("#showMouseTxt" + tagNum).animate({ marginTop: 10, opacity: 0 }, 100, function () {
+            $("#showMouseTxt" + tagNum).remove()
+        });
+    }
+
+}

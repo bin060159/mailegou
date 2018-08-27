@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/zhuche.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../lib/jquery-3.3.1.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/zhuche.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="../img/zhuct.png" alt="">
+    </div>
+
+    <div class="main">
+        <div class="biaodan ">
+           <div class="biaoti clearfix">
+            <h3 class="fl">新用户注册</h3>
+            <span class="btr fr">已有麦乐购帐号，<a href="#">已有麦乐购帐号，</a></span>
+           </div>
+            <form>
+                <ul>
+
+                    <li><input type="text"  id ='uname' placeholder="以字母开头5到19位字母或数字"><br>
+                        <span id="yhm">此用户名可用</span>
+                    </li>
+                    <li><input type="text" placeholder="请输入手机号码" id ='phone'><br>
+                        <span>输入手机号有误</span>
+                    </li>
+                
+                    <li><input type="password" placeholder="请输入密码 6-20个字符" id='password'><br>
+                            <span>密码有误</span>
+                    </li>
+                    
+                    <li><input type="password" placeholder="请输再次输入密码" id="confirm_pwd"><br>
+                            <span>密码有误</span>
+                    </li>
+                    <li class="yzm">
+                        <input type="text" placeholder="请输入验证码" class="inputw" id='shuruyz'>
+                        <i class='sjyz' id="sjyzm">2466</i>
+                        <i class="huan">换一张</i>
+                    </li>
+                    <!-- <li><input type="text" placeholder="短息校验码" class="inputw">
+                        <button class='xybtn'>获取短息校验码</button>
+                    </li> -->
+                </ul>
+                <ul class="yedu">
+                    <li><input type="checkbox" class="kuang" id="tongyi">已阅读并同意 <a href="#">《麦乐购注册协议及交易条款》</a></li>
+                    <li class="yedubtn"><input type="button" value="立即注册" id='zhuche'></li>
+                    <li class='duanxin'>收不到短息？ <a href="#">请使用语言验证</a> </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <div class="button">
+        <img src="../img/bottom.png" alt="">
+    </div>
+</body>
+</html>

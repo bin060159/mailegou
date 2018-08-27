@@ -1,0 +1,37 @@
+.shangpin .cont .p1 { font-size: 12px; color: #666; margin-bottom: 20px; }
+
+.shangpin .cont .p1 a { color: #999; }
+
+.shangpin { margin-top: 20px; }
+
+.spx .spl { width: 362px; height: 495px; }
+
+.spx .spl .bigimg { border: 1px solid #ccc; width: 350px; height: 350px; overflow: hidden; }
+
+.spx .spl .bigimg img { width: 350px; height: 350px; }
+
+.sptab li { float: left; margin: 0 5px; border: 1px solid #ccc; }
+
+.sptab li img { width: 50px; height: 50px; }
+
+.sptab { margin-top: 10px; }
+
+.sptab a { display: block; height: 50px; line-height: 50px; color: #666; }
+
+.spr { font-size: 14px; color: #666; padding-left: 20px; }
+
+.spr p { background-color: #ccc; margin: 10px 0; }
+
+.spr p span { color: red; font-weight: bold; }
+
+.spr h3 { font-size: 16px; }
+
+.spr h3 span { color: red; }
+
+.spsj li a { color: #999; border: 1px solid #ccc; margin-right: 10px; padding: 5px; }
+
+.spsj li { margin: 25px 0; }
+
+.xqbtn { width: 160px; height: 42px; line-height: 42px; background: #cc1d00; font-size: 20px; color: #fff; font-weight: bold; }
+
+#bordercolor { border-color: #cc1d00; }

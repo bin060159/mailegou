@@ -1,0 +1,50 @@
+﻿// JavaScript Document
+/*
+    var B=0;
+	$("#tabMenus li:first").addClass("current");
+	$("#tabCons ul:first").show();
+	$("#tabMenus li").each(function(C){$(this).click(function(){$(this).addClass("current").siblings().removeClass();
+	$("#tabCons > ul").hide();
+	$("#tabCons ul:eq("+C+")").show()})});
+	$("#tabMenus li").click(function(){	
+	$("#tabMenus li").each(function(C){$(this).click(function(){$(this).addClass("current").siblings().removeClass();
+	$("#tabCons > ul").hide();
+	$("#tabCons ul:eq("+C+")").show()})});
+	//clearInterval(A)
+	});
+	*/
+	//$("#tabMenus li").mouseout(function(){clearInterval(A);B=0;A=setInterval(function(){$("#tabMenus li:eq("+B+")").trigger("click");if(B<5){B++}else{B=0}},3000)});
+
+	
+	//var B=1;var A=setInterval(function(){$("#tabMenus li:eq("+B+")").trigger("click");
+	//if(B<7){B++}
+	//else{B=0}},5000);
+	$(function(){
+	 var $category=$(".tabUl dl");
+	 var $toggleBtn=$(".tabUl dl dd.dMore > a");
+	 $toggleBtn.click(function(){
+		var index=$toggleBtn.index(this);
+		if($(this).hasClass("dw")){
+			$(this).removeClass("dw").text("更多");
+			$category.eq(index).removeClass("xp");
+		} else {
+			$(this).addClass("dw").text("收起").end().siblings().removeClass("dw").text("更多");
+			$category.eq(index).addClass("xp").end().sibling().removeClass("xp");
+		}
+	})
+})
+
+var $liBtns=$(".tg_liebiao ul li:not(:first)");
+$liBtns.hover(function(){
+	$(this).addClass("hover");
+	},
+	function(){
+	$(this).removeClass("hover");}
+)
+var $liBtns1=$(".tg_Ul ul li:not(:first)");
+$liBtns1.hover(function(){
+	  $(this).addClass("hover");
+	  },
+	  function(){
+	  $(this).removeClass("hover");}
+	)

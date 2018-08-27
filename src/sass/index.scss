@@ -35,7 +35,7 @@ button{width: 80px;height: 40px;background-color: #CC1D00;font-size: 16px;color:
 
 // 二级菜单
 .nav{position: absolute;left:80px;top: 0;z-index: 10;}
-
+#ml{padding-left: 20px;width: 162px;background: #A90000;}
 .nav ul li{width:182px;height: 51px;background-color: #CB3E25;font-size: 14px;i{font-size: 24px;color:white;line-height:49px;
 width: 39px;height: 49px;display:inline-block;text-align: right;} h3{a{color:#ECA57B;font-size: 14px;}}}
 .nav ul li{border-top:1px solid #DA5A44;border-bottom: 1px solid #b82f17;div{display: inline-block;margin:9px 0px 0 6px;a{color:#ECA598;}h3{a{color:white;}}}}
@@ -45,10 +45,13 @@ width: 39px;height: 49px;display:inline-block;text-align: right;} h3{a{color:#EC
 
 // banner 部分
 .zhengDian{background-color:#f3f3f3;padding-bottom: 30px;}
-.banner{width: 100%;height: 480px;background-color: #FEDECC;.banner-R{position: absolute;left: 1070px;top:0px;a{display: block;}};position: relative;.cont{img{margin-left: 180px;}}}
+.banner{width: 100%;height: 480px;background-color: #FEDECC;.banner-R{position: absolute;left: 1070px;top:0px;a{display: block;}};position: relative;.cont{img{margin-left: -10px;}}}
 .zhengDian-t h3 {height: 38px;width: 41px;background: url(../css/img/jlt.png)no-repeat;background-position:-58px -44px;font-size: 20px;font-weight: bold;}
 .zhengDian-t{line-height: 41px;font-size: 12px;color:#999;}
 .zhengDian-D{div{width: 20%;float: left;text-align: center;background-color: #444851;color:white;span{font-size: 12px;}}}
+.banner .cont{position: relative;img{position: absolute;left:0;top:0;}}
+
+
 
 // 抢购商品
 .zdSp{background-color:#f3f3f3;}
@@ -60,8 +63,9 @@ span{color:red;font-weight: 900;}}img{display: block;margin:0 auto;} a{color:#99
 
 // 天天特卖
 .tiantian{background-color: #f3f3f3;padding-top: 25px;}
-.tt{li{float: left;width: 290px;height: 290px;margin-right: 10px;margin-bottom: 10px;box-sizing:border-box;box-shadow: 0px 0px 5px 0px #d8d7d7;}}
+.tt{li{float: left;position: relative;width: 290px;height: 290px;margin-right: 10px;margin-bottom: 10px;box-sizing:border-box;box-shadow: 0px 0px 5px 0px #d8d7d7;}}
 .tt li:nth-child(4n){margin-right: 0;}
+.tt a{display: block;overflow: hidden;width: 290px;height: 230px;}
 // .tt li p:nth-of-type(1){font-size: 14px;margin-left: 5px;}
 .tt li .d2{position: relative;padding:10px 10px 0 10px;font-family: "microsoft yahei";p{margin-bottom: 5px;};span{font-size: 12px;color:#999;}}
 .tt li .d2 p:nth-of-type(2){color:#e02200;font-weight: bold;position: absolute;right: 15px;top: 15px;}
@@ -90,6 +94,21 @@ background-color: white;margin-right: 10px;img{width: 150px;height: 150px;displa
     background-color: #03a4fe;font-size: 16px;font-family: "microsoft yahei";border-bottom: 4px solid #fff;}height: 443px;padding-top: 46px;border: 1px solid #ededed;background: #fff;
     float: left;margin-right: 10px;.list{overflow: hidden;box-shadow: 0 0 0 0;padding: 13px 0 13px 25px;height: 210px;a{display: block;width: 62px;height: 30px;font-size: 12px;color:#999;float: left;;}}}
 .f1-c2{padding-right: 10px;}
+// f1轮播
+.pinpai_lunbo{width: 175px;overflow: hidden;position: relative;}
+.pinpai_lunbo ul{width: 710px;overflow: hidden;position: absolute;left:0;}
+.pinpai_lunbo li{float: left;}
+// F2轮播
+.pinpai_lunbo1{width: 175px;overflow: hidden;position: relative;}
+.pinpai_lunbo1 ul{width: 710px;overflow: hidden;position: absolute;left:0;}
+.pinpai_lunbo1 li{float: left;}
+
+.pinpai_lunbo2{width: 175px;overflow: hidden;position: relative;}
+.pinpai_lunbo2 ul{width: 710px;overflow: hidden;position: absolute;left:0;}
+.pinpai_lunbo2 li{float: left;}
+
+
+
 .f1-l .list .listcolor{color:#03a4fe;}
 .f1-c1{padding-right: 10px;.fi-c1xia{margin-top: 10px;}}
 .f1-c1 a,.f1-c2 a{display: block;}
@@ -97,3 +116,5 @@ background-color: white;margin-right: 10px;img{width: 150px;height: 150px;displa
 .f1-r a{display: block;}
 .two{margin-top: 10px;margin-bottom: 10px;}
 .tuijian{background-color: #f3f3f3;padding-top: 30px;h2{line-height: 35px;}}
+
+.dibu img :nth-of-type(1){width: 1190px;}
