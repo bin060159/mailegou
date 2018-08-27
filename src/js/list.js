@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+jQuery(function($){
 	let ul = document.getElementById('goods');
 
 
@@ -9,17 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (xhr.readyState === 4) {
 			// 确认数据接收完毕
 			// 在次获取数据：responseText
-			var data = JSON.parse(xhr.responseText);
+			let data = JSON.parse(xhr.responseText);
 			// console.log(data)
 			let cont = '';
 			for (let i = 0; i < data.length; i++) {
 				cont += `
-					<li>
-					<a href="#" class="lia"><img src="../img/${data[i].img}"></a>
+					<li data-guid="${data[i].id}">
+					<a href="javascript:;" class="lia"><img src="../img/${data[i].img}"></a>
 					<p class="jg"><span>${data[i].jiage}</span><del>价格${data[i].yuanjia}</del></p>
 					<p>${data[i].title}<p/>	
 					<div>
-					<a href="#">加入购物车</a>
+					<a href="javascript:;" class='btn'>加入购物车</a>
 				
 					</div>
 					</li>
@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			// console.log(ul)
 			ul.innerHTML = cont;
+
+			let ul1 = document
+
+
 
 			var li = document.querySelectorAll('#goods li .lia');
 			for(var i=0;i<li.length;i++){
@@ -52,6 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					console.log(params);
 				}
 			}
+
+			// 写入cookie
+			 $('goods li').click(function(){
+				var index = $("ul li").index(this);
+				alert(index);
+			
+			 })
 
 		}
 	}
